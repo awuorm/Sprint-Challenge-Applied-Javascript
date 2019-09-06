@@ -12,13 +12,15 @@
 
 // tab component
 function tapCreator(settings) {
-
+ 
     const divTab = document.querySelector(".topics");
-
+ 
+    // create DOM elements
     const topicH = document.createElement("div");
     topicH.classList.add("tab");
     topicH.textContent = settings;
 
+   //append elements to the DOM 
     divTab.appendChild(topicH);
 
     return divTab;

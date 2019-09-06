@@ -19,46 +19,44 @@
 // Create a card for each of the articles and add the card to the DOM.
 
 function cardCreator (settings) {
-const cardsCont = document.querySelector(".cards-container");
 
+    // create DOM elements
+    const cardsCont = document.querySelector(".cards-container");
 
-const divCard = document.createElement("div");
-divCard.classList.add("card");
+    const divCard = document.createElement("div");
+    divCard.classList.add("card");
 
-const divHeadline = document.createElement("div");
-divHeadline.classList.add("headline");
-divHeadline.textContent = settings.headline ;
+    const divHeadline = document.createElement("div");
+    divHeadline.classList.add("headline");
+    divHeadline.textContent = settings.headline ;
 
-const divAuthor = document.createElement("div");
-divAuthor.classList.add("author");
+    const divAuthor = document.createElement("div");
+    divAuthor.classList.add("author");
 
-const divImg =  document.createElement("div");
-divImg.classList.add("img-container");
+    const divImg =  document.createElement("div");
+    divImg.classList.add("img-container");
 
-const Img = document.createElement("img");
-Img.setAttribute("src",settings.authorPhoto);
+    const Img = document.createElement("img");
+    Img.setAttribute("src",settings.authorPhoto);
 
-const spanName = document.createElement("span");
-spanName.textContent = "By" + settings.authorName;
+    const spanName = document.createElement("span");
+    spanName.textContent = "By" + settings.authorName;
 
-cardsCont.appendChild(divCard);
-divCard.appendChild(divHeadline);
-divHeadline.appendChild(divAuthor);
-divAuthor.appendChild(divImg);
-divImg.appendChild(Img);
-divAuthor.appendChild(spanName);
+    //appending elements to DOM
+    cardsCont.appendChild(divCard);
+    divCard.appendChild(divHeadline);
+    divHeadline.appendChild(divAuthor);
+    divAuthor.appendChild(divImg);
+    divImg.appendChild(Img);
+    divAuthor.appendChild(spanName);
 
-console.log(cardsCont);
-return cardsCont;
-
-
-
-
+    //return final DOM object
+    return cardsCont;
 }
 
 axios.get("https://lambda-times-backend.herokuapp.com/articles")
 .then(response =>
-    {//console.log(response.data.articles)
+    {
        const articlesArray = [response.data.articles.bootstrap , response.data.articles.technology, response.data.articles.jquery, response.data.articles.node]
 
        articlesArray.map ((element) =>
@@ -66,17 +64,9 @@ axios.get("https://lambda-times-backend.herokuapp.com/articles")
            element.map((article) => 
            
            {
-            
-               console.log(article);
-
                  return cardCreator(article);
-           })
-
-           
-       
-        })
-
-       
+           }) 
+        })   
     })
 .catch(error =>
     error);

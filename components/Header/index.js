@@ -13,6 +13,7 @@ function header() {
 
     const headerCont = document.querySelector(".header-container");
 
+     // create DOM elements
     const divH = document.createElement("div");
     divH.classList.add("header");
 
@@ -27,6 +28,7 @@ function header() {
     spanTemp.classList.add("temp");
     spanTemp.textContent = "98°";
 
+        //append DOM elements
     headerCont.appendChild(divH);
     divH.appendChild(spanDate);
     divH.appendChild(titleH);
