@@ -32,7 +32,6 @@ function header() {
     divH.appendChild(titleH);
     divH.appendChild(spanTemp);
 
-    console.log(headerCont);
     return headerCont;
 }
 

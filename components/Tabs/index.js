@@ -7,3 +7,35 @@
 //
 //  The tab component should look like this:
 //    <div class="tab">topic here</div>
+
+
+
+// tab component
+function tapCreator(settings) {
+
+    const divTab = document.querySelector(".tabs");
+
+    const topicH = document.createElement("div");
+    topicH.classList.add("tab");
+    topicH.style.margin = "4px";
+    topicH.textContent = settings;
+
+    divTab.appendChild(topicH);
+
+    return divTab;
+}
+
+
+axios.get("https://lambda-times-backend.herokuapp.com/topics")
+.then(response => 
+    { 
+        const topics = response.data.topics.map((element) =>
+        {
+            tapCreator(element);
+        })
+    })
+    .catch(error => {
+        return error;
+    })
+
+
