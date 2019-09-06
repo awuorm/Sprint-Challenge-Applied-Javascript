@@ -13,11 +13,10 @@
 // tab component
 function tapCreator(settings) {
 
-    const divTab = document.querySelector(".tabs");
+    const divTab = document.querySelector(".topics");
 
     const topicH = document.createElement("div");
     topicH.classList.add("tab");
-    topicH.style.margin = "4px";
     topicH.textContent = settings;
 
     divTab.appendChild(topicH);

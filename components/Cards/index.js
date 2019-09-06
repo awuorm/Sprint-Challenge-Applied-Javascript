@@ -19,7 +19,7 @@
 // Create a card for each of the articles and add the card to the DOM.
 
 function cardCreator (settings) {
-const bodyCont = document.querySelector("body");
+const cardsCont = document.querySelector(".cards-container");
 
 
 const divCard = document.createElement("div");
@@ -41,15 +41,15 @@ Img.setAttribute("src",settings.authorPhoto);
 const spanName = document.createElement("span");
 spanName.textContent = "By" + settings.authorName;
 
-bodyCont.appendChild(divCard);
+cardsCont.appendChild(divCard);
 divCard.appendChild(divHeadline);
 divHeadline.appendChild(divAuthor);
 divAuthor.appendChild(divImg);
 divImg.appendChild(Img);
 divAuthor.appendChild(spanName);
 
-console.log(bodyCont);
-return bodyCont;
+console.log(cardsCont);
+return cardsCont;
 
 
 
